@@ -1,0 +1,433 @@
+use my_first_db
+switched to db my_first_db
+db.estudiantes.insertMany([
+  {name: "Estudiante1", home_state: "California", lucky_number: 7, birthday: {month: 5, day: 15, year: 1998}},
+  {name: "Estudiante2", home_state: "Washington", lucky_number: 12, birthday: {month: 9, day: 22, year: 1995}},
+  {name: "Estudiante3", home_state: "California", lucky_number: 3, birthday: {month: 7, day: 8, year: 2000}},
+  {name: "Estudiante4", home_state: "Washington", lucky_number: 8, birthday: {month: 11, day: 17, year: 1997}},
+  {name: "Estudiante5", home_state: "California", lucky_number: 5, birthday: {month: 3, day: 29, year: 1999}}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65f8c1ddde770a521736ed1e'),
+    '1': ObjectId('65f8c1ddde770a521736ed1f'),
+    '2': ObjectId('65f8c1ddde770a521736ed20'),
+    '3': ObjectId('65f8c1ddde770a521736ed21'),
+    '4': ObjectId('65f8c1ddde770a521736ed22')
+  }
+}
+db.estudiantes.find({})
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1e'),
+  name: 'Estudiante1',
+  home_state: 'California',
+  lucky_number: 7,
+  birthday: {
+    month: 5,
+    day: 15,
+    year: 1998
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1f'),
+  name: 'Estudiante2',
+  home_state: 'Washington',
+  lucky_number: 12,
+  birthday: {
+    month: 9,
+    day: 22,
+    year: 1995
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed20'),
+  name: 'Estudiante3',
+  home_state: 'California',
+  lucky_number: 3,
+  birthday: {
+    month: 7,
+    day: 8,
+    year: 2000
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed21'),
+  name: 'Estudiante4',
+  home_state: 'Washington',
+  lucky_number: 8,
+  birthday: {
+    month: 11,
+    day: 17,
+    year: 1997
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed22'),
+  name: 'Estudiante5',
+  home_state: 'California',
+  lucky_number: 5,
+  birthday: {
+    month: 3,
+    day: 29,
+    year: 1999
+  }
+}
+db.estudiantes.find({$or: [{home_state: "California"}, {home_state: "Washington"}]})
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1e'),
+  name: 'Estudiante1',
+  home_state: 'California',
+  lucky_number: 7,
+  birthday: {
+    month: 5,
+    day: 15,
+    year: 1998
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1f'),
+  name: 'Estudiante2',
+  home_state: 'Washington',
+  lucky_number: 12,
+  birthday: {
+    month: 9,
+    day: 22,
+    year: 1995
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed20'),
+  name: 'Estudiante3',
+  home_state: 'California',
+  lucky_number: 3,
+  birthday: {
+    month: 7,
+    day: 8,
+    year: 2000
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed21'),
+  name: 'Estudiante4',
+  home_state: 'Washington',
+  lucky_number: 8,
+  birthday: {
+    month: 11,
+    day: 17,
+    year: 1997
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed22'),
+  name: 'Estudiante5',
+  home_state: 'California',
+  lucky_number: 5,
+  birthday: {
+    month: 3,
+    day: 29,
+    year: 1999
+  }
+}
+db.estudiantes.find({lucky_number: {$gt: 3}})
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1e'),
+  name: 'Estudiante1',
+  home_state: 'California',
+  lucky_number: 7,
+  birthday: {
+    month: 5,
+    day: 15,
+    year: 1998
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1f'),
+  name: 'Estudiante2',
+  home_state: 'Washington',
+  lucky_number: 12,
+  birthday: {
+    month: 9,
+    day: 22,
+    year: 1995
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed21'),
+  name: 'Estudiante4',
+  home_state: 'Washington',
+  lucky_number: 8,
+  birthday: {
+    month: 11,
+    day: 17,
+    year: 1997
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed22'),
+  name: 'Estudiante5',
+  home_state: 'California',
+  lucky_number: 5,
+  birthday: {
+    month: 3,
+    day: 29,
+    year: 1999
+  }
+}
+db.estudiantes.find({lucky_number: {$lte: 10}})
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1e'),
+  name: 'Estudiante1',
+  home_state: 'California',
+  lucky_number: 7,
+  birthday: {
+    month: 5,
+    day: 15,
+    year: 1998
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed20'),
+  name: 'Estudiante3',
+  home_state: 'California',
+  lucky_number: 3,
+  birthday: {
+    month: 7,
+    day: 8,
+    year: 2000
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed21'),
+  name: 'Estudiante4',
+  home_state: 'Washington',
+  lucky_number: 8,
+  birthday: {
+    month: 11,
+    day: 17,
+    year: 1997
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed22'),
+  name: 'Estudiante5',
+  home_state: 'California',
+  lucky_number: 5,
+  birthday: {
+    month: 3,
+    day: 29,
+    year: 1999
+  }
+}
+db.estudiantes.find({lucky_number: {$lte: 10}})
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1e'),
+  name: 'Estudiante1',
+  home_state: 'California',
+  lucky_number: 7,
+  birthday: {
+    month: 5,
+    day: 15,
+    year: 1998
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed20'),
+  name: 'Estudiante3',
+  home_state: 'California',
+  lucky_number: 3,
+  birthday: {
+    month: 7,
+    day: 8,
+    year: 2000
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed21'),
+  name: 'Estudiante4',
+  home_state: 'Washington',
+  lucky_number: 8,
+  birthday: {
+    month: 11,
+    day: 17,
+    year: 1997
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed22'),
+  name: 'Estudiante5',
+  home_state: 'California',
+  lucky_number: 5,
+  birthday: {
+    month: 3,
+    day: 29,
+    year: 1999
+  }
+}
+db.estudiantes.count()
+DeprecationWarning: Collection.count() is deprecated. Use countDocuments or estimatedDocumentCount.
+5
+db.estudiantes.find({lucky_number: {$lte: 10}})
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1e'),
+  name: 'Estudiante1',
+  home_state: 'California',
+  lucky_number: 7,
+  birthday: {
+    month: 5,
+    day: 15,
+    year: 1998
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed20'),
+  name: 'Estudiante3',
+  home_state: 'California',
+  lucky_number: 3,
+  birthday: {
+    month: 7,
+    day: 8,
+    year: 2000
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed21'),
+  name: 'Estudiante4',
+  home_state: 'Washington',
+  lucky_number: 8,
+  birthday: {
+    month: 11,
+    day: 17,
+    year: 1997
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed22'),
+  name: 'Estudiante5',
+  home_state: 'California',
+  lucky_number: 5,
+  birthday: {
+    month: 3,
+    day: 29,
+    year: 1999
+  }
+}
+db.estudiantes.find({lucky_number: {$gte: 1, $lte: 9}})
+{
+  _id: ObjectId('65f8c1ddde770a521736ed1e'),
+  name: 'Estudiante1',
+  home_state: 'California',
+  lucky_number: 7,
+  birthday: {
+    month: 5,
+    day: 15,
+    year: 1998
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed20'),
+  name: 'Estudiante3',
+  home_state: 'California',
+  lucky_number: 3,
+  birthday: {
+    month: 7,
+    day: 8,
+    year: 2000
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed21'),
+  name: 'Estudiante4',
+  home_state: 'Washington',
+  lucky_number: 8,
+  birthday: {
+    month: 11,
+    day: 17,
+    year: 1997
+  }
+}
+{
+  _id: ObjectId('65f8c1ddde770a521736ed22'),
+  name: 'Estudiante5',
+  home_state: 'California',
+  lucky_number: 5,
+  birthday: {
+    month: 3,
+    day: 29,
+    year: 1999
+  }
+}
+db.estudiantes.updateMany({}, {$set: {intereses: ["codificación", "brunch", "MongoDB"]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+db.estudiantes.updateMany({}, {$addToSet: {intereses: "nuevo_interes"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+db.estudiantes.updateOne({name: "nombre_estudiante"}, {$addToSet: {intereses: "impuestos"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+db.estudiantes.updateOne({name: "nombre_estudiante"}, {$pull: {intereses: "impuestos"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+db.estudiantes.deleteOne({name: "Estudiante5"})
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+db.estudiantes.deleteOne({lucky_number: {$gt: 5}})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.estudiantes.updateMany({}, {$set: {number_of_belts: 0}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.estudiantes.updateMany({}, {$rename: {"number_of_belts": "belts_earned"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.estudiantes.updateMany({}, {$unset: {lucky_number: ""}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.estudiantes.updateMany({}, {$set: {updated_on: new Date()}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}

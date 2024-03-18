@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "65f8c1ddde770a521736ed21"
+  },
+  "name": "Estudiante4",
+  "home_state": "Washington",
+  "birthday": {
+    "month": 11,
+    "day": 17,
+    "year": 1997
+  },
+  "intereses": [
+    "codificación",
+    "brunch",
+    "MongoDB",
+    "nuevo_interes"
+  ],
+  "belts_earned": 0,
+  "updated_on": {
+    "$date": "2024-03-18T22:50:45.343Z"
+  }
+}]
